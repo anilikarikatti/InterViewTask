@@ -131,7 +131,7 @@ export default function Timer(){
                             {buttons.map(elem=>{
                                 let {name,isActive} = elem;
                                 return (
-                                    <button className={isActive ? "text-white bg-green-800 w-40 rounded-lg capitalize" : "text-black bg-green-300 w-40 rounded-lg capitalize"}  onClick={btnClicked}> {name}</button>
+                                    <button className={isActive ? "text-white bg-green-800 w-40 rounded-lg capitalize" : "text-black bg-green-300 w-40 rounded-lg capitalize"}  onClick={btnClicked} key={elem}> {name}</button>
                                 )
                             })}
                         </div>

@@ -101,12 +101,12 @@ export default function AddTask({tasks, setTasks,setStatus,status, timer,editabl
                         <textarea name="description" onChange={taskChange} rows={10} cols={50} className="p-4 rounded-lg " value={task.description}></textarea>
                         
                         <div className="h-10 relative top-10 w-[90%] flex justify-around ">
-                            {buttons.map(elem=>{
+                            {buttons ? buttons.map(elem=>{
                                 let {name,isActive} = elem;
                                 return (
-                                    <button className="text-white bg-green-800 w-40 rounded-lg capitalize h-10 relative top-10 " onClick={taskAdd} > {name}</button>
+                                    <button className="text-white bg-green-800 w-40 rounded-lg capitalize h-10 relative top-10 " onClick={taskAdd} key={elem}> {name}</button>
                                 )
-                            })}
+                            }) : ""}
                         </div>
                     </div>
 

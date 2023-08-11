@@ -25,24 +25,24 @@ console.log(elem);
 
     return(
         <>
-<div className="relative ">
+    <div className="relative ">
 
         <table className="w-full h-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase bg-gray-300 dark:bg-gray-700 dark:text-gray-400 ">
                 <tr>
-                {headers.map(elem=>
+                {headers ? headers.map(elem=>
                 (
                     <th scope="col" className="px-6 py-3 text-center" key = {elem}>
                         {elem}
                     </th>)
-                )}
+                ) : ""}
                 </tr>
             </thead>
             <tbody >
 
             
                     
-                    {data.map((elem,index)=>(
+                    {data ? data.map((elem,index)=>(
                         
                         <tr className="bg-white border-b  dark:border-gray-700" key={elem}>
                     { headers.map(value=>{
@@ -59,7 +59,7 @@ console.log(elem);
                             </tr>
                                     
                         )
-                    )}
+                    ) : ""}
                     
             
                 
