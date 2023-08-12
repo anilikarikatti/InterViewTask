@@ -8,13 +8,13 @@ export default function TaskList(props){
 
     console.log("data",data);
 
-    let headers = Object.keys(data[0])
+    let headers = data ? Object.keys(data[0]) : ""
 
     // for description not needed
 
-    headers = headers.filter(elem=>elem!="description" && elem != "index")
+    headers = headers ?  headers.filter(elem=>elem!="description" && elem != "index") : ""
 
-    headers.reverse()
+    headers ? headers.reverse() :""
 
     let edit = (elem,index)=>{
 console.log(elem);

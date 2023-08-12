@@ -23,7 +23,7 @@ export default function AddTask({tasks, setTasks,setStatus,status, timer,editabl
                 
                 setTask({...editableTask})
             }
-        },[setTask])
+        },[setTask,editableTask,task,timer])
 
         console.log(task);
 
@@ -56,7 +56,7 @@ export default function AddTask({tasks, setTasks,setStatus,status, timer,editabl
                 let {index} = task;
                 
                 console.log(index,"index");
-                if(index ){
+                if(index && tasks){
                     // console.log(tasks);
                    let  arr1 = [...tasks]
                     arr= arr1.filter((elem,ind)=>ind != index-1)
@@ -90,7 +90,7 @@ export default function AddTask({tasks, setTasks,setStatus,status, timer,editabl
 
     return (
         <>
-            {status.success ? <SuccessMessage  action = "task added successfully" setData={setTask} setStatus={setStatus}  setEditableTask={setEditableTask}/> :  status.failure ? <SuccessMessage  action = "you cancel the task" setData={setTask} setStatus={setStatus}  setEditableTask={setEditableTask}/>  :
+            {status ? status.success ? <SuccessMessage  action = "task added successfully" setData={setTask} setStatus={setStatus}  setEditableTask={setEditableTask}/> :  status.failure ? <SuccessMessage  action = "you cancel the task" setData={setTask} setStatus={setStatus}  setEditableTask={setEditableTask}/>  :
                 <div className="flex justify-center">
                     <div className="border-2 border-white h-80 w-[60%] top-20 relative flex justify-center  flex-col items-center gap-2">
                         <label htmlFor="title" className="capitalize">title</label>
@@ -106,12 +106,12 @@ export default function AddTask({tasks, setTasks,setStatus,status, timer,editabl
                                 return (
                                     <button className="text-white bg-green-800 w-40 rounded-lg capitalize h-10 relative top-10 " onClick={taskAdd} key={elem}> {name}</button>
                                 )
-                            }) : ""}
+                            }) : "" }
                         </div>
                     </div>
 
                 </div>
-}
+:""}
         </>
     )
 
