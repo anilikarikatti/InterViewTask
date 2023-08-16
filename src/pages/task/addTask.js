@@ -6,7 +6,7 @@ export default function AddTask({tasks, setTasks,setStatus,status, timer,editabl
 
         // let router = useRouter()
 
-        
+        console.log("add list");
 
         let [task,setTask ]  =useState({})
 
@@ -16,14 +16,17 @@ export default function AddTask({tasks, setTasks,setStatus,status, timer,editabl
 
         useEffect(()=>{
             let {hour,minutes,seconds} = timer
-            setTask({...task,edit:"edit","HH:MM:SS" : `${hour} : ${minutes} : ${seconds}`})
+            // task.edit= "edit", task["HH:MM:SS"] =  `${hour} : ${minutes} : ${seconds}`;
+
+            setTask({ edit: "edit", "HH:MM:SS" :  `${hour} : ${minutes} : ${seconds}`})
             
             if(editableTask){
                 console.log(editableTask,"addff");
                 
+                // task = {...editableTask}
                 setTask({...editableTask})
             }
-        },[setTask,editableTask,task,timer])
+        },[])
 
         console.log(task);
 
@@ -64,6 +67,7 @@ export default function AddTask({tasks, setTasks,setStatus,status, timer,editabl
                     
                 }
                 else{
+                    
                     arr = [...tasks]
                 }
                     console.log(arr);
@@ -94,17 +98,17 @@ export default function AddTask({tasks, setTasks,setStatus,status, timer,editabl
                 <div className="flex justify-center">
                     <div className="border-2 border-white h-80 w-[60%] top-20 relative flex justify-center  flex-col items-center gap-2">
                         <label htmlFor="title" className="capitalize">title</label>
-                        <input type="text" name="title" className="p-2 rounded-lg" onChange={taskChange} value={task.title}/>
+                        <input type="text" name="title" className="p-2 rounded-lg disabled" onChange={taskChange} value={task.title}/>
 
                         <label htmlFor="title" className="capitalize ">description</label>
                         
                         <textarea name="description" onChange={taskChange} rows={10} cols={50} className="p-4 rounded-lg " value={task.description}></textarea>
                         
                         <div className="h-10 relative top-10 w-[90%] flex justify-around ">
-                            {buttons ? buttons.map(elem=>{
+                            {buttons ? buttons.map((elem,index)=>{
                                 let {name,isActive} = elem;
                                 return (
-                                    <button className="text-white bg-green-800 w-40 rounded-lg capitalize h-10 relative top-10 " onClick={taskAdd} key={elem}> {name}</button>
+                                    <button className="text-white bg-green-800 w-40 rounded-lg capitalize h-10 relative top-10 " onClick={taskAdd} key={index}> {name}</button>
                                 )
                             }) : "" }
                         </div>

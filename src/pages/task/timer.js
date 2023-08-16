@@ -122,16 +122,16 @@ export default function Timer(){
                 <div className="capitalize text-center text-[30px] relative top-10 "><h1>{status.save ? "Add task " : "timer"}</h1></div>
                 {status.save ? <AddTask tasks={tasks} setTasks={setTasks} setStatus = {setStatus} status={status} timer={timer} setTimer = {setCount} editableTask={editableTask} setEditableTask={setEditableTask} /> : 
                 <div className="flex justify-center">
-                    <div className="border-2 border-white h-80 w-[60%] top-20 relative flex justify-center  flex-col items-center">
-                        <h2 className=" border-2 border-white w-80 text-center h-10 p-2">{timer.hour + " : " + timer.minutes + " : " + timer.seconds }</h2>
+                    <div className="border-2 border-white h-80 sm:w-[60%] w-[80%]  top-20 relative flex justify-center  flex-col items-center rounded-lg">
+                        <h2 className=" border-2 border-white sm:w-[50%]  w-[80%] text-center h-10 p-2 rounded-lg">{timer.hour + " : " + timer.minutes + " : " + timer.seconds }</h2>
 
                         {/* <h2>{count}</h2> */}
 
                         <div className="h-10 relative top-10 w-[90%] flex justify-around ">
-                            {buttons.map(elem=>{
+                            {buttons.map((elem,index)=>{
                                 let {name,isActive} = elem;
                                 return (
-                                    <button className={isActive ? "text-white bg-green-800 w-40 rounded-lg capitalize" : "text-black bg-green-300 w-40 rounded-lg capitalize"}  onClick={btnClicked} key={elem}> {name}</button>
+                                    <button className={isActive ? "text-white bg-green-800 w-[30%] rounded-lg capitalize" : "text-black bg-green-300 w-[30%] rounded-lg capitalize"}  onClick={btnClicked} key={index}> {name}</button>
                                 )
                             })}
                         </div>

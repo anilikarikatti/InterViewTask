@@ -44,7 +44,7 @@ console.log(elem);
                     
                     {data ? data.map((elem,index)=>(
                         
-                        <tr className="bg-white border-b  dark:border-gray-700" key={elem}>
+                        <tr className="bg-white border-b  dark:border-gray-700" key={index}>
                     { headers.map(value=>{
                         
                         if(value == "edit"){
